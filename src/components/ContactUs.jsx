@@ -97,7 +97,7 @@ export default function ContactUs() {
 
               <div>
                 <label htmlFor="app" className="block text-sm font-medium leading-6 text-gray-900">
-                  Book Appointment Date
+                 Appointment Date
                 </label>
                 <div className="mt-2">
                   <input
@@ -116,7 +116,7 @@ export default function ContactUs() {
 
               <div>
                 <label htmlFor="app" className="block text-sm font-medium leading-6 text-gray-900">
-                  Enter Appointment Time
+                  Appointment Time
                 </label>
                 <div className="mt-2">
                   <input

@@ -2,11 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Star } from "./Star";
 
 export default function Feedback() {
   const [name, setname] = useState("");
   const [comments, setcomments] = useState("");
-  const [rating, setrating] = useState("");
+  const [rating, setrating] = useState(0);
   const [therapyNames, settherapyNames] = useState([]);
 
   const handleOptionChange = (option) => {
@@ -15,6 +16,10 @@ export default function Feedback() {
     } else {
       settherapyNames([...therapyNames, option]);
     }
+  };
+
+  const handleRatingChange = (value) => {
+    setrating(value); 
   };
 
   const handleSubmit = (e) => {
@@ -34,7 +39,7 @@ export default function Feedback() {
 
   return (
     <>
-      <div className="bg-green-200 flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className=" flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Feedback Form
@@ -85,23 +90,14 @@ export default function Feedback() {
 
             <div>
               <label htmlFor="rating" className="block text-sm font-medium leading-6 text-gray-900">
-                Rating (1-10)
+                Rating
               </label>
-              <div className="mt-2">
-                <input
-                  type="number"
-                  id="rating"
-                  autoComplete="off"
-                  name="rating"
-                  min="1"
-                  max="10"
-                  value={rating}
-                  onChange={(e) => {
-                    setrating(e.target.value);
-                  }}
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+              <div className="flex">
+                <Star filled={rating >= 1} onClick={() => handleRatingChange(1)} />
+                <Star filled={rating >= 2} onClick={() => handleRatingChange(2)} />
+                <Star filled={rating >= 3} onClick={() => handleRatingChange(3)} />
+                <Star filled={rating >= 4} onClick={() => handleRatingChange(4)} />
+                <Star filled={rating >= 5} onClick={() => handleRatingChange(5)} />
               </div>
             </div>
 

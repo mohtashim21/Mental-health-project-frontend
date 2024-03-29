@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ContactUs from './components/ContactUs'
 import Feedback from './components/Feedback';
-import Temp from './components/Temp';
+import { Star } from './components/Star';
 
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
       <ToastContainer />
       {/* <ContactUs /> */}
       <Feedback />
-      {/* <Temp /> */}
+      {/* <Star /> */}
     </div>
   )
 }
