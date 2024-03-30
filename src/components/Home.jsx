@@ -25,7 +25,7 @@ const Home = () => {
 
       <div className="flex mt-5 mx-[8%] gap-12 flex-col md:flex-row">
         <div className="">
-          <img src={stress} alt="stress" className=" rounded-lg mt-0" />
+          <img src={stress} alt="stress" className="rounded-lg" />
           <h2 className="text-center text-3xl font-bold my-7">Stress</h2>
           <p className="leading-7 text-lg">
             Stress can be defined as any type of change that causes physical,
@@ -39,7 +39,7 @@ const Home = () => {
         </div>
 
         <div className="">
-          <img src={thinking} alt="stress" className=" mr-[5%] mt-0 " />
+          <img src={thinking} alt="stress" className=" mr-[5%]" />
           <h2 className="text-center text-3xl font-bold mt-4 md:mt-[8rem] mb-7">Overthinking</h2>
           <p className="leading-7 text-lg">
             Overthinking is defined as “a loop of unproductive thoughts” or “an
@@ -54,7 +54,7 @@ const Home = () => {
         </div>
 
         <div className="">
-          <img src={depression} alt="stress" className=" rounded-lg" />
+          <img src={depression} alt="stress" className="rounded-lg" />
           <h2 className="text-center text-3xl font-bold my-5">Depression</h2>
           <p className="leading-7 text-lg">
             Depression (major depressive disorder) is a common and serious
@@ -70,7 +70,11 @@ const Home = () => {
       </div>
 
         <div className="flex justify-center mt-8 "> 
-         <NavLink to='/moreinfo'><button className="border-2 border-black bg-[#22C55E] py-3 px-4 rounded-lg font-bold  text-black-500" id="allbtn">More infomation</button></NavLink>
+        <NavLink to="/moreinfo">
+          <button className="px-6 py-3 bg-[#22C55E] text-white font-semibold rounded-lg focus:outline-none hover:bg-green-700 transition-colors">
+            More Information
+          </button>
+        </NavLink>
           </div>
     
 <div className="flex  mt-8 gap-20 ml-5 md:flex-row flex-col">
@@ -90,7 +94,9 @@ const Home = () => {
            </div>
 
            <div className="flex justify-center mt-10 mb-5"> 
-          <button className="border-2 border-black bg-[#22C55E] py-3 px-4 rounded-lg font-bold  text-black-900" id="allbtn">Book Appointment Now</button>
+           <button className="px-6 py-3 bg-[#22C55E] text-white font-semibold rounded-lg focus:outline-none hover:bg-green-700 transition-colors">
+          Book Appointment Now
+        </button>
           </div>
 
     </motion.main>
