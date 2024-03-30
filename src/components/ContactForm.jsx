@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import {ToastContainer,toast} from 'react-toastify'
+const baseUrl = "https://mental-health-project-backend.onrender.com"
 
 export default function ContactForm() {
   const [name,setname] = useState("")
@@ -12,7 +13,7 @@ export default function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(name,mobileno,email,date,time)
-    axios.post("http://localhost:8080/contactus",{name,email,mobileno,date,time})
+    axios.post(`${baseUrl}/contactus`,{name,email,mobileno,date,time})
     .then((result) => {
       console.log(result)
       toast.success("successfully submited")
