@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../index.css";
 
-export const Star = ({ filled: propFilled, onClick }) => {
+const Star = ({ filled: propFilled, onClick }) => {
   const [isFilled, setIsFilled] = useState(false);
 
   const handleClick = (e) => {
@@ -32,3 +32,5 @@ export const Star = ({ filled: propFilled, onClick }) => {
     </div>
   );
 };
+
+export default Star;
