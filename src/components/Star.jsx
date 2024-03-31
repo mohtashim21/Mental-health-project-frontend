@@ -1,26 +1,26 @@
 import React, { useState } from "react";
 import "../index.css";
 
-const Star = ({ filled: propFilled, onClick }) => {
-  const [isFilled, setIsFilled] = useState(false);
+const Star = ({ filled, onClick }) => {
+  // const [isFilled, setIsFilled] = useState(false);
 
-  const handleClick = (e) => {
-    e.preventDefault()
-    setIsFilled(!isFilled)
-    console.log("clicked")
-    onClick && onClick(!isFilled)
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault()
+  //   setIsFilled(!isFilled)
+  //   console.log("clicked")
+  //   onClick && onClick(!isFilled)
+  // };
 
   return (
     <div className="flex">
-      <button onClick={handleClick}>
+      <button onClick={onClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6 star-icon"
-          style={{ fill: isFilled ? 'yellow' : 'none' }}
+          style={{ fill: filled ? 'yellow' : 'none' }}
         >
           <path
             strokeLinecap="round"

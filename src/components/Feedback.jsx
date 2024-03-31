@@ -26,7 +26,6 @@ export default function FeedbackForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(name, comments, rating, therapyNames);
-
     axios.post(`${baseUrl}/feedback`, { name, comments, rating, therapyNames })
       .then((result) => {
         console.log(result);
@@ -135,17 +134,17 @@ export default function FeedbackForm() {
 
 
             <div className='ms-3 me-3' >
-              <label htmlFor="rating" className="block text-lg font-bold leading-6 text-gray-900 text-center">
-                Rating 
-              </label>
-              <div className="flex justify-center">
-                <Star filled={rating >=1} onclick={() => handleRatingChange(1)}/>
-                <Star filled={rating >=2} onclick={() => handleRatingChange(2)}/>
-                <Star filled={rating >=3} onclick={() => handleRatingChange(3)}/>
-                <Star filled={rating >=4} onclick={() => handleRatingChange(4)}/>
-                <Star filled={rating >=5} onclick={() => handleRatingChange(5)}/>
+                <label htmlFor="rating" className="block text-lg font-bold leading-6 text-gray-900 text-center">
+                  Rating 
+                </label>
+                <div className="flex justify-center">
+                  <Star filled={rating >=1} onClick={() => handleRatingChange(1)}/>
+                  <Star filled={rating >=2} onClick={() => handleRatingChange(2)}/>
+                  <Star filled={rating >=3} onClick={() => handleRatingChange(3)}/>
+                  <Star filled={rating >=4} onClick={() => handleRatingChange(4)}/>
+                  <Star filled={rating >=5} onClick={() => handleRatingChange(5)}/>
+                </div>
               </div>
-            </div>
 
             
 
