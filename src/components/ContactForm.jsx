@@ -8,7 +8,7 @@ export default function ContactForm() {
   const [mobileno,setmobno] = useState("")
   const [email,setemail] = useState("")
   const [date,setdate] = useState("")
-  const [time,settime] =useState("")
+  const [time,settime] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
