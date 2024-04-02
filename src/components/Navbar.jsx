@@ -43,19 +43,19 @@ export default function Navbar() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    {/* {navigation.map((item) => (
                       <NavLink
                       key={item.name}
                       to={item.Link}
                       className={classNames(
                           item.current ? 
-                          ' text-black-900 ' : 'text-black-900  hover:bg-[#22C55E] hover:text-white',
+                          ' text-black-900 ' : 'text-black-900 hover:bg-[#22C55E] hover:text-white',
                           'rounded-md px-3 py-2  font-bold text-xl'
                         )}
                         aria-current={item.current ? 'page' : undefined}>
                         {item.name}
                       </NavLink>
-                    ))}
+                    ))} */}
                   </div>
                 </div>
               </div>
