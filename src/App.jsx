@@ -4,13 +4,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Services from './components/Services'
-import ContactUs from './components/ContactUs';
 import Aboutus from './components/Aboutus'
 import FeedbackForm from './components/Feedback';
 import Moreinfo from './components/Moreinfo'
 import Explorestress from './components/Explorestress'
 import Exploreoverthinking from './components/Exploreoverthinking'
 import Exploredepression from './components/Exploredepression'
+import Appointment from './components/Appointment';
+import Welcome from './components/Welcome';
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/services' element={<Services/>}/>
         <Route path='/aboutus' element={<Aboutus/>}/>
-        <Route path='/contactus' element={<ContactUs/>}/>
+        <Route path='/appointment' element={<Appointment/>}/>
+        <Route path='/welcome/:name' element={<Welcome />}/>
         <Route path='/feedback' element={<FeedbackForm/>}/>
         <Route path='/moreinfo' element={<Moreinfo/>}/>
         <Route path='/services' element={<Services/>}/>

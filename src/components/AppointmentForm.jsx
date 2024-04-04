@@ -1,36 +1,62 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import {ToastContainer,toast} from 'react-toastify'
-const baseUrl = "https://mental-health-project-backend.onrender.com"
+import Loader from './Loader'
+// const baseUrl = "https://mental-health-project-backend.onrender.com"
+const url = "http://localhost:8080"
 
-export default function ContactForm() {
+export default function AppointmentForm() {
   const [name,setname] = useState("")
   const [mobileno,setmobno] = useState("")
   const [email,setemail] = useState("")
   const [date,setdate] = useState("")
   const [time,settime] = useState("")
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(name,mobileno,email,date,time)
-    axios.post(`${baseUrl}/contactus`,{name,email,mobileno,date,time})
-    .then((result) => {
-      console.log(result)
-      toast.success("successfully submited")
-    })
-    .catch((err) => {
-      console.log(err)
-      toast.error("Something went wrong")
-    })
-  }
+    e.preventDefault();
+
+    const nameRegex = /^[a-zA-Z\s]+$/;
+
+    if (name.length < 3 || name.length > 20) {
+        return toast.error("Name should be between 3 to 20 letters");
+    }
+  
+    if (!name.match(nameRegex)){
+        return toast.error("Name must contain only alphabets");
+    }
+
+    if (mobileno.length < 10 || mobileno.length > 12) {
+        return toast.error("Mobile number should be either 10 or 12 digits");
+    }
+
+    axios.post(`${url}/appointment`, { name, email, mobileno, date, time })
+        .then((result) => {
+            console.log(result);
+            toast.success("Successfully submitted");
+            setname("");
+            setmobno("");
+            setemail("");
+            setdate("");
+            settime("");
+            navigate(`/welome${name}`);
+        })
+        .catch((err) => {
+            console.error(err);
+            toast.error("Something went wrong");
+        });
+}
+
   return (
-    <main className='bgimage'>
+    <main className='bg-red-200'>
       
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-0 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm ms-3" style={{border:'3px solid black', borderRadius:'1rem', backgroundColor:"transparent"}} id='contact'>
          
           <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
-            Contact Us
+            Book Appointment
           </h2>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -76,7 +102,9 @@ export default function ContactForm() {
                 <input
                   id="number"
                   name="number"
-                  type="text"
+                  type="number"
+                  minLength="10"
+                  maxLength="12"
                   value={mobileno}
                   onChange={(e) => setmobno(e.target.value)}
                   required
@@ -123,6 +151,7 @@ export default function ContactForm() {
                   
                 />
               </div>
+
             </div>
            
             <div className='flex justify-center'>

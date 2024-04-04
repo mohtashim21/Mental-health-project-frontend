@@ -4,12 +4,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Star from "./Star";
 const baseUrl = "https://mental-health-project-backend.onrender.com"
+const url = "http://localhost:8080"
 
 export default function FeedbackForm() {
   const [name, setname] = useState("");
-  const [comments, setcomments] = useState("");
+  const [suggetions, setSuggetions] = useState("");
   const [rating, setrating] = useState(0);
   const [therapyNames, settherapyNames] = useState([]);
+  const [loading, setLoading] = useState("")
 
   const handleOptionChange = (option) => {
     if (therapyNames.includes(option)) {
@@ -22,11 +24,24 @@ export default function FeedbackForm() {
   const handleRatingChange = (value) => {
     setrating(value)
   }
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+    
+    const nameRegex = /^[a-zA-Z]+$/;
+
+    if (name.length > 20 && name.length <=3){
+      setLoading(false)
+      return toast.error("name Should be in between 3 to 20 letters");
+    }
+
+    if (!name.match(nameRegex)){
+      setLoading(false)
+      return toast.error("name must contain only alphabets");
+    }
     console.log(name, comments, rating, therapyNames);
-    axios.post(`${baseUrl}/feedback`, { name, comments, rating, therapyNames })
+    axios.post(`${url}/feedback`, { name, comments, rating, therapyNames })
       .then((result) => {
         console.log(result);
         toast.success("Thank you for your feedback");
@@ -39,7 +54,7 @@ export default function FeedbackForm() {
 
   return (
     <>
-      <div className=" feedback flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className=" bg-gray-400 flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm shadow-md" style={{border:'2px solid black', borderRadius:'1rem', backgroundColor:"transparent"}} id='contact'>
           <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
             Feedback Form
@@ -48,7 +63,7 @@ export default function FeedbackForm() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit} method="POST">
-            <div  className='ms-3 me-3'>
+          <div  className='ms-3 me-3'>
               <label htmlFor="name" className="block text-lg font-bold leading-6 text-gray-900">
                 Name
               </label>
@@ -67,28 +82,7 @@ export default function FeedbackForm() {
                 />
               </div>
             </div>
-
-            <div className='ms-3 me-3'>
-              <label htmlFor="comment" className="block text-lg font-bold ms-3 leading-6 text-gray-900">
-                Comments
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  id="comment"
-                  autoComplete="off"
-                  name="comment"
-                  value={comments}
-                  onChange={(e) => {
-                    setcomments(e.target.value);
-                  }}
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset  ring-green-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="ms-3 me-3" >
+          <div className="ms-3 me-3" >
               <label className="block text-lg font-bold leading-6 text-gray-900">
                 Therapy Name
               </label>
@@ -131,10 +125,30 @@ export default function FeedbackForm() {
                 </div>
               </div>
             </div>
+           
 
+            <div className='ms-3 me-3'>
+              <label htmlFor="comment" className="block text-lg font-bold ms-3 leading-6 text-gray-900">
+                Suggetions
+              </label>
+              <div className="mt-2">
+                <textarea
+                  type="text"
+                  id="suggetions"
+                  autoComplete="off"
+                  name="suggetions"
+                  value={suggetions}
+                  onChange={(e) => {
+                    setSuggetions(e.target.value);
+                  }}
+                  required
+                  className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset  ring-green-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
 
             <div className='ms-3 me-3' >
-                <label htmlFor="rating" className="block text-lg font-bold leading-6 text-gray-900 text-center">
+                <label htmlFor="rating" className="block text-lg font-bold leading-6 text-gray-900 text-center my-3">
                   Rating 
                 </label>
                 <div className="flex justify-center">
