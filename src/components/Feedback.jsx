@@ -38,9 +38,9 @@ export default function FeedbackForm() {
     if (!name.match(nameRegex)) {
       return toast.error("name must contain only alphabets");
     }
-    console.log(name, comments, rating, therapyNames);
+    console.log(name, suggetions, rating, therapyNames);
     axios
-      .post(`${baseUrl}/feedback`, { name, comments, rating, therapyNames })
+      .post(`${baseUrl}/feedback`, { name, suggetions, rating, therapyNames })
       .then((result) => {
         console.log(result);
         toast.success("Thank you for your feedback");
