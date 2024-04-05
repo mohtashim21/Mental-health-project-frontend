@@ -42,7 +42,6 @@ export default function FeedbackForm() {
     axios
       .post(`${baseUrl}/feedback`, { name, suggetions, rating, therapyNames })
       .then((result) => {
-        console.log(result);
         toast.success("Thank you for your feedback");
         setname("");
         setSuggetions("")
@@ -51,7 +50,6 @@ export default function FeedbackForm() {
         navigate("/resfeedback")
       })
       .catch((err) => {
-        console.error("Error submitting feedback:", err);
         toast.error("Failed to submit feedback");
       });
   };

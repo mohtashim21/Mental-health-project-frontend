@@ -33,7 +33,6 @@ export default function AppointmentForm() {
     axios
       .post(`${baseUrl}/appointment`, { name, email, mobileno, date, time })
       .then((result) => {
-        console.log(result);
         toast.success("Successfully submitted");
         setname("");
         setmobno("");
@@ -43,7 +42,6 @@ export default function AppointmentForm() {
         navigate("/resappointment")
       })
       .catch((err) => {
-        console.error(err);
         toast.error("Something went wrong");
       });
   };
