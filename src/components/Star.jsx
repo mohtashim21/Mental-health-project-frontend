@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import "../index.css";
 
 const Star = ({ filled, onClick }) => {
-
-
   return (
     <div className="flex">
-      <button onClick={(e) => {e.preventDefault(); onClick();}}>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          onClick();
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6 star-icon"
-          style={{ fill: filled ? 'yellow' : 'none' }}
+          style={{ fill: filled ? "yellow" : "none" }}
         >
           <path
             strokeLinecap="round"

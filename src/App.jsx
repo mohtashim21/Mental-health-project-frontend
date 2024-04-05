@@ -11,7 +11,8 @@ import Explorestress from './components/Explorestress'
 import Exploreoverthinking from './components/Exploreoverthinking'
 import Exploredepression from './components/Exploredepression'
 import Appointment from './components/Appointment';
-import Welcome from './components/Welcome';
+import ResAppointment from './components/ResAppointment';
+import ResFeedback from './components/ResFeedback';
 
 const App = () => {
   return (
@@ -26,7 +27,8 @@ const App = () => {
         <Route path='/services' element={<Services/>}/>
         <Route path='/aboutus' element={<Aboutus/>}/>
         <Route path='/appointment' element={<Appointment/>}/>
-        <Route path='/welcome/:name' element={<Welcome />}/>
+        <Route path='/resappointment' element={<ResAppointment />}/>
+        <Route path='/resfeedback' element={<ResFeedback />}/>
         <Route path='/feedback' element={<FeedbackForm/>}/>
         <Route path='/moreinfo' element={<Moreinfo/>}/>
         <Route path='/services' element={<Services/>}/>
