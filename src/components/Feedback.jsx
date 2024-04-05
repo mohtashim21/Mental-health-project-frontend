@@ -85,7 +85,6 @@ export default function FeedbackForm() {
                   <input
                     type="text"
                     id="name"
-                    autoComplete="off"
                     name="name"
                     value={name}
                     onChange={(e) => {
@@ -160,7 +159,6 @@ export default function FeedbackForm() {
                   <textarea
                     type="text"
                     id="suggetions"
-                    autoComplete="off"
                     name="suggetions"
                     value={suggetions}
                     onChange={(e) => {
