@@ -32,7 +32,6 @@ export default function AppointmentForm() {
     axios
       .post(`${baseUrl}/appointment`, { name, email, mobileno, date })
       .then((result) => {
-        toast.success("Successfully submitted");
         navigate("/resappointment")
       })
       .catch((err) => {
