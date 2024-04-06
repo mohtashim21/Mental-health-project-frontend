@@ -55,8 +55,8 @@ export default function FeedbackForm() {
   };
 
   return (
-    <>
-      <div className=" bg-gray-400 flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <main className="bg-blue-200">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-10 lg:px-8">
         <div
           className="sm:mx-auto sm:w-full sm:max-w-sm shadow-md"
           style={{
@@ -215,6 +215,6 @@ export default function FeedbackForm() {
         </div>
       </div>
       <ToastContainer />
-    </>
+    </main>
   );
 }

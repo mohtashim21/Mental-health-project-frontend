@@ -9,7 +9,6 @@ export default function AppointmentForm() {
   const [mobileno, setmobno] = useState("");
   const [email, setemail] = useState("");
   const [date, setdate] = useState("");
-  const [time, settime] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,7 +37,6 @@ export default function AppointmentForm() {
         setmobno("");
         setemail("");
         setdate("");
-        settime("");
         navigate("/resappointment")
       })
       .catch((err) => {
@@ -47,12 +45,12 @@ export default function AppointmentForm() {
   };
 
   return (
-    <main className="bg-red-200">
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-0 lg:px-8">
+    <main className="bg-blue-200">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-10 lg:px-8">
         <div
           className="sm:mx-auto sm:w-full sm:max-w-sm ms-3"
           style={{
-            border: "3px solid black",
+            border: "2px solid black",
             borderRadius: "1rem",
             backgroundColor: "transparent",
           }}
@@ -148,28 +146,7 @@ export default function AppointmentForm() {
                 </div>
               </div>
 
-              <div className="ms-3 me-3">
-                <div className="flex items-center justify-between">
-                  <label
-                    htmlFor=""
-                    type="date"
-                    className="block text-lg font-bold leading-6 text-gray-900"
-                  >
-                    Appointment time
-                  </label>
-                </div>
-                <div className="mt-2 font-bold">
-                  <input
-                    id="time"
-                    name="time"
-                    type="time"
-                    value={time}
-                    onChange={(e) => settime(e.target.value)}
-                    required
-                    className="block  font-bold w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-2 ring-inset ring-green-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
+            
 
               <div className="flex justify-center">
                 <button
