@@ -43,10 +43,6 @@ export default function FeedbackForm() {
       .post(`${baseUrl}/feedback`, { name, suggetions, rating, therapyNames })
       .then((result) => {
         toast.success("Thank you for your feedback");
-        setname("");
-        setSuggetions("")
-        setrating("")
-        settherapyNames("")
         navigate("/resfeedback")
       })
       .catch((err) => {
