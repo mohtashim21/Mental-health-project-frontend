@@ -33,10 +33,6 @@ export default function AppointmentForm() {
       .post(`${baseUrl}/appointment`, { name, email, mobileno, date })
       .then((result) => {
         toast.success("Successfully submitted");
-        setname("");
-        setmobno("");
-        setemail("");
-        setdate("");
         navigate("/resappointment")
       })
       .catch((err) => {
