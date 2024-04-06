@@ -30,7 +30,7 @@ export default function AppointmentForm() {
     }
 
     axios
-      .post(`${baseUrl}/appointment`, { name, email, mobileno, date, time })
+      .post(`${baseUrl}/appointment`, { name, email, mobileno, date })
       .then((result) => {
         toast.success("Successfully submitted");
         setname("");
