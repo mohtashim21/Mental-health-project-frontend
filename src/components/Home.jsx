@@ -103,7 +103,7 @@ const Home = () => {
 
       <div className="flex justify-center mt-10 mb-5">
         <NavLink
-          to="/contactus"
+          to="/appointment"
           className="px-6 py-3 bg-[#22C55E] text-white font-semibold rounded-lg focus:outline-none hover:bg-green-700 transition-colors"
         >
           Book Appointment Now
